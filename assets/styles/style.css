@@ -1,0 +1,769 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;800&display=swap');
+
+
+/*Reset CSS Starts*/
+
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    text-decoration: none;
+}
+
+
+html,body{
+    font-size: 62.5%;
+    font-family: 'Raleway', sans-serif;
+    overflow-x: hidden !important;
+}
+
+/*Reset CSS Ends*/
+
+
+
+/* ScrollBar Starts*/
+
+::-webkit-scrollbar{
+    background-color: var(--secondary-color);
+    width: .5rem;
+}
+
+/* ScrollBar Ends*/
+
+
+::-webkit-scrollbar-thumb{
+    background-color: var(--primary-color);
+    border-radius: 5rem;
+}
+
+/*Dark Mode Starts */
+
+:root{
+    --primary-color:#424242;
+    --secondary-color: #6d6d6d;
+    --color: white;
+    --theme: 1;
+}
+
+/*Dark Mode Ends */
+
+
+/*Light Mode Starts*/
+
+.light-theme:root{
+    --primary-color: #cac5c5 !important;
+    --color: #000000  !important;
+    --secondary-color: #6d6d6d;
+    --theme:0;
+}
+
+/*Light Mode Ends*/
+
+
+
+/* Container Starts */
+
+.container{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-color);
+    color: var(--color);
+}
+
+/* Container Ends */
+
+
+
+/* Tags Starts*/
+
+ul{
+    display: flex;
+    gap: 1rem;
+}
+
+h1{
+    text-align: center;
+    font-weight: 200;
+}
+
+h3{
+    font-size: 4rem;
+}
+
+a{
+    color: var(--color);
+}
+
+/* Tags Ends*/
+
+
+/* Modal Starts */
+
+#fade{
+    position: fixed;
+    z-index: 600;
+    width: 100vw;
+    height: 100vh;
+    background-color: #00000049;
+    opacity: 1;
+}
+
+#modal{
+    color: white;
+    background-color: black;
+    padding: 5rem;
+    z-index: 700;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    flex-direction: column;
+    opacity: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.hide{
+    pointer-events: none;
+    opacity: 0 !important;
+}
+
+
+/* Modal Ends */
+
+
+/* Header Starts */
+
+header{
+    transition: .5s;
+    position: fixed;
+    display: flex;
+    height: 10vh;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem 0;
+    flex: 0;
+    font-weight: 400;
+    z-index: 100;
+}
+
+#theme{
+    font-size: 3rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' var(--theme), 
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+  }
+
+.logo{
+    font-size: 4rem;
+    display: flex;
+    justify-content: center;
+}
+
+#mobile-menu{
+    display: none;
+}
+#mobile-menu-alternative{
+    opacity: 0;
+    pointer-events: none;
+}
+
+#mobile-fade{
+    transition: .4s;
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 200;
+    background-color: rgba(0, 0, 0, 0.452);
+}
+
+.active-mobile-menu{
+    transform: translateX(0px) !important;
+}
+
+.menu a{
+    font-size: 2rem;
+    color: var(--color);
+}
+
+
+.kart{
+    position: relative;
+    cursor: pointer;
+}
+
+
+.kart-counter{
+    font-size: 1.5rem !important; 
+    width: 65%;
+    border-radius: 100%;
+    height: 65%;
+    position: absolute;
+    top: 0;
+    right:0;
+    background-color: red;
+    display: none;
+}
+
+.kart-counter span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.bought-items{
+    max-width: 286.33px;
+    max-height: 300px;
+    background-color: #6d6d6d;
+    position: absolute;
+    right: 30px;
+    overflow-y: scroll;
+    height: 600px;
+    top: 0;
+    z-index: 30000;
+    display: none;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.visible{
+    opacity: 1;
+    pointer-events: all;
+ }
+
+
+.item {
+    width: 100%;
+    font-size:1.5rem;
+    color:white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+}
+.item img{
+    width: 8rem;
+    height: 5rem;
+}
+
+.item--info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:flex-start;
+}
+
+.removeButton{
+    cursor: pointer;
+}
+
+
+
+/* Header Ends */
+
+
+
+/* Pages Starts */
+
+.page{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    flex-grow: 1;
+    font-weight: 200;
+    padding: 1rem;
+}
+
+#games{
+    height: auto !important;
+}
+
+/* Pages Ends */
+
+
+/* Home Starts */
+
+.section--image{
+    width: 12rem;
+    height: 12rem;
+    filter: grayscale(90%);
+}
+
+.section--description{
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+
+.consoles{
+    justify-content: center;
+    align-items: center;
+}
+
+
+.consoles .name-logo img{
+    width: 8rem;
+    height: 8rem;
+}
+
+.consoles .symbol-logo img{
+    width: 8rem;
+    height: 5rem;
+}
+
+.consoles .switch-logo img{
+    width: 5rem;
+    height: 4.5rem;
+}
+
+
+
+/* Home Ends */
+
+/* Games Starts */
+
+.carousel{
+    padding-top: 8rem;
+    overflow: hidden;
+    gap: 2rem;
+    width: 59rem;
+    margin: 0 auto;
+    position: relative;
+}
+
+
+h2{
+    font-size: 4rem;
+    text-align: center;
+    font-weight: 200;
+    margin-bottom: 1rem;
+}
+
+
+.carousel--container{
+    display: flex;
+    transform: translateX(50px);
+    transition: .5s ease-in-out
+}
+
+.original-price{
+    text-decoration: line-through .1rem;
+}
+
+.section--image img{
+    width: 100%;
+    height: 100%;
+}
+
+
+.slide{
+    font-size: 3rem;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.slide button, .bought-items button{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    border-radius: .1rem;
+    text-transform: uppercase;
+    width: 10rem;
+    min-height: 3.5rem;
+    background-color: #1b1b1b;
+    color: #ffffff;
+    border: 0;
+    cursor: pointer;
+    transition: .4s;
+    position: relative;
+}
+
+.slide button::before, .bought-items button::before{
+    border-radius: .1rem;
+    top: 0;
+    left: 0;
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 100%;
+    background-color: #ffffff;
+    opacity: .1;
+}
+.slide button:hover, .bought-items button:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.slide button:focus:before, .bought-items button:focus:before{
+   width: 100%;
+   transition: .4s;
+
+}
+
+.slide:not(:first-child){
+    margin-left: 10rem !important;
+}
+
+section.buttons button{
+    position: absolute;
+    transition: .5s;
+    top:47%;
+    font-size: 6em;
+    background:none;
+    border: none;
+    z-index: 1;
+    cursor: pointer;
+    color: var(--color) ;
+}
+
+section.buttons .right{
+    right: 5px;
+    
+}
+section.buttons .left{
+    left: 5px;
+    opacity: .4;
+}
+
+.img{
+    width: 49rem;
+    height: 30rem;
+    border-radius: 3rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+/* PS4 Images  Starts */
+
+#theLastOfUsPartII{
+    background-image: url('https://image.api.playstation.com/vulcan/img/rnd/202010/2618/itbSm3suGHSSHIpmu9CCPBRy.jpg');
+    background-size: cover;
+}
+#bloodborne{
+    background-image: url('https://image.api.playstation.com/vulcan/img/rnd/202010/2614/KKLEVc2SIIgrFVjsZChZJk1d.jpg');
+    background-size: cover;
+    background-position: center;
+}
+#infamousSecondSon{
+    background-image: url('https://image.api.playstation.com/vulcan/img/rnd/202010/2821/Uaa2dGP7cIf8tDPn6borubcx.jpg');
+    background-size: cover;
+}
+#horizonZeroDawn{
+    background-image: url('https://cdn1.epicgames.com/3328b08ac1c14540aa265a1a85c07839/offer/hzd_wide-2560x1440-bd312be05c49cf339097777c493cb899.jpg');
+    background-size: cover;
+}
+#spiderMan{
+    background-image: url('https://i.ytimg.com/vi/5YPMjO7a1IE/maxresdefault.jpg');
+    background-size: cover;
+}
+
+/* PS4 Images  Ends */
+
+
+
+/* PS5 Images Starts */
+
+
+#godOfwarRagnarok{
+     background-image: url('https://image.api.playstation.com/vulcan/ap/rnd/202109/2821/a0DyIs2SEHrYpciM1ideU1wv.jpg');
+    background-size: cover;
+}
+
+#returnal{
+    background-image: url('https://image.api.playstation.com/vulcan/ap/rnd/202011/1621/nnvaURoYxPIoqqF7hO5JIatg.jpg');
+    background-size: cover;
+}
+
+#demonSouls{
+    background-image: url('https://bunnygaming.com/wp-content/uploads/2020/12/DS-FI.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+#ratchAndClankAnotherDimension{
+    background-image: url('https://image.api.playstation.com/vulcan/ap/rnd/202101/2921/mFlyD4mzhwjefBTxvytjTTP7.jpg');
+    background-size: cover;
+}
+
+#starOceanTheDivineForce{
+    background-image: url('https://image.api.playstation.com/vulcan/ap/rnd/202206/1306/s8hF2XJPLOEF5OoxvgTTerfm.jpg');
+    background-size: cover;
+}
+
+/* PS5 Images Ends */
+
+
+/* XBOX SERIES X/S Images Starts*/
+
+#forzaHorizon5{
+    background-image: url('https://i0.wp.com/sergiereviews.com/wp-content/uploads/2021/12/wp-1638979426973.jpg?fit=2400%2C1350&ssl=1');
+    background-size: cover;
+}
+#haloInfinite{
+    background-image: url('https://compass-ssl.xbox.com/assets/9c/94/9c944d9c-7ef1-4b46-9f68-9b02966d3993.jpg?n=Halo-Infinite_GLP-Page-Hero-0_1083x609.jpg');
+    background-size: cover;
+}
+#microsoftFlightSimulator{
+    background-image: url('https://cdn.cloudflare.steamstatic.com/steam/apps/1250410/capsule_616x353.jpg?t=1661185064');
+    background-size: cover;
+}
+
+#tunic{
+    background-image: url('https://cdn1.epicgames.com/offer/b6faa05b8b594ec39944ff71dbdfdfc1/EGS_TUNIC_ISOMETRICORPGamesLtd_S1_2560x1440-3951494846c8ed2b0705d85e7fd550d4');
+    background-size: cover;
+}
+
+/* XBOX SERIES X/S Images Ends*/
+
+
+/* Switches Images Starts */
+
+
+#marioOdissey{
+    background-image: url('https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/pt_BR/games/switch/s/super-mario-odyssey-switch/hero');
+    background-size: cover;
+}
+
+#kirbyAndTheForgottenLands{
+    background-image: url('https://blogger.googleusercontent.com/img/a/AVvXsEg4eGWsORw1IENWBAC7rTcYDkaWP1Bfm1uvz77-LJzRgidvBCkmVWCXzAeysLVWAKjfVSpNYtpZ7WfGz1so9t-4stUknBaWmVUs0Q4eWreH07vYLSowK4EzZj_TC87TynWYexkLmHU3S7sCKI3I0OeL-jHc66ZY5D2ICsqtx69n7P8R9oxt6Aq0djfXKA=s967');
+    background-size: cover;
+}
+#theLegendOfZeldaBreathOfTheWild{
+    background-image: url('https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_2.625/c_scale,w_500/ncom/pt_BR/games/switch/t/the-legend-of-zelda-breath-of-the-wild-switch/hero');
+    background-size: cover;
+    background-position: right;
+}
+#astralChain{
+    background-image: url('https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_2.625/c_scale,w_500/ncom/pt_BR/games/switch/a/astral-chain-switch/hero');
+    background-size: cover;
+}
+
+/* Switches Images Ends */
+
+/* Games Ends */
+
+/* Developer Starts */
+
+.developer{
+    font-size: 4rem;
+}
+
+#contact{
+    text-align: center;
+    padding: 1rem;
+    gap: 4rem;
+}
+
+#contact a:hover{
+    text-decoration: underline !important;
+}
+
+/* Developer Ends */
+
+/* Home Responsiviness Starts */
+
+    @media screen and (max-width:500px){
+
+        @media screen and (max-height: 680px){
+            #home{
+                padding-top: 10rem ;
+                height: auto;
+            }
+        }
+
+        .menu{
+            position: absolute;
+            background-color: var(--secondary-color);
+            height: 100vh;
+            top: 0;
+            right: 0;
+            padding: 5rem;
+            transform: translateX(299px);
+            transition: .4s;
+            z-index: 300;
+        }
+
+        .menu ul{
+            flex-direction: column;
+        }
+
+        #mobile-menu{
+            display: block;
+            cursor: pointer;
+        } 
+        #mobile-menu-alternative{
+            opacity: 1;
+            pointer-events: all;
+            position: absolute;
+            top: 17px;
+            right: 20px;
+        }
+        
+}
+
+    @media screen and (max-width:350px){
+        .consoles{
+            flex-direction: column;
+        }
+    }
+
+    
+
+/* Games Responsiviness Ends */
+
+
+
+
+/* Games Responsiviness Starts */
+
+
+@media screen and (max-width: 747px){
+
+    h2{
+        font-size: 2.5rem;
+    }
+
+    
+    section.buttons button{
+
+        top:45%;
+        font-size: 3rem;
+   
+    }
+
+@media screen and (max-width: 612px){
+
+    section .buttons button{
+        font-size: 3rem;
+    }
+
+    .slide{
+        font-size: 2rem;
+    }
+
+    h2{
+        font-size: 1.5rem;
+    }
+
+    .carousel{
+    
+        width: 49rem;
+         
+      }
+
+    .img{
+        width: 39rem;
+        height: 22rem;
+    }
+
+
+}
+
+@media screen and (max-width: 612px){
+
+    
+
+    .carousel{
+    
+        width: 39rem;
+         
+      }
+
+    .img{
+        width: 29rem;
+        height: 18rem;
+    }
+
+
+}
+
+@media screen and (max-width: 425px){
+
+    section .buttons button{
+        font-size: 2rem;
+        top:47%;
+    }
+
+    .carousel h1{
+        font-size: 1.8rem;
+    }
+
+    .slide span{
+        font-size: 1.3rem;
+    }
+
+    .carousel{
+    
+        width: 29rem;
+         
+      }
+
+    .img{
+        width: 19rem;
+        height: 14rem;
+    }
+
+
+}
+
+}
+
+
+/* Games Responsiviness Ends */
+
+
+/* Concact Responsiviness Starts */
+
+@media screen and (max-width:1214px) {
+    #contact {
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width:543px) {
+    #contact {
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (max-width:543px) {
+    #contact {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width:363px) {
+    #contact {
+        font-size: 1.5rem;
+    }
+}
+
+/* Concact Responsiviness Ends */
